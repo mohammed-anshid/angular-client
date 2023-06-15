@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
+import { ToastrService } from 'ngx-toastr';
 import { ApisService } from 'src/app/services/apis.service';
 import { Data } from 'src/app/shared/data.interface';
 
@@ -10,7 +11,7 @@ import { Data } from 'src/app/shared/data.interface';
 })
 export class ContactUsComponent {
 
-  constructor(private fb:FormBuilder,private apiService:ApisService){}
+  constructor(private fb:FormBuilder,private apiService:ApisService,private toastr:ToastrService){}
 
   submit:boolean = false;
   finalAddress :any 
@@ -60,6 +61,7 @@ export class ContactUsComponent {
     return this.applicationForm.controls
   }
 
+
   uploadFile(event:Event){
     const file = (event.target as HTMLInputElement)?.files?.[0];
     if (file) {
@@ -99,7 +101,7 @@ export class ContactUsComponent {
       }
       if(data){
         this.apiService.submitData(data).subscribe((response)=>{
-          console.log(response);
+          this.toastr.success(response.message, '');
         })
       }
     }) 
