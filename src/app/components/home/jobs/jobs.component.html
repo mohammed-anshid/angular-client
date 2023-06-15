@@ -1,0 +1,24 @@
+<div class="main">
+    <h1 class='text-textColor text-center text-[25px] py-[2rem] pb-[3rem] font-bold'>Find Dream Jobs</h1>
+    <div class='jobContainer flex gap-10 justify-center flex-wrap items-center py-10'>
+        <div class='group group/item singleJob border w-[250px] p-[20px] bg-white rounded-[10px]
+        hover:bg-blueColor shadow-lg shadowIsh-400/700 hover:shadow-lg' *ngFor="let job of jobs">
+
+            <span class='flex justify-between items-center gap-4'>
+                <h4 class='text-[16px] font-semibold text-textColor group-hover:text-white'>{{ job.title }}</h4>
+                <span class='flex items-center text-[#ccc] gap-1'>Now</span>
+            </span>
+
+            <h6 class='text-[#ccc]'>{{ job.location }}</h6>
+            <p class='text-[13px] text-[395959] pt-[20px] border-t-[2px] mt-[20px] group-hover:text-white'>
+                {{ job.description }}
+            </p>
+            <button class='border-[2px] rounded-[10px] block p-[10px] w-full text-[14px]
+            font-semibold text-white bg-textColor hover:bg-white group-hover/item:text-textColor group-hover:text-black mt-2'>
+                Apply Now
+            </button>
+        </div>
+    </div>
+</div>
+
+
