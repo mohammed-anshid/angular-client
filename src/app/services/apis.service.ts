@@ -22,6 +22,6 @@ export class ApisService {
   }
 
   submitData(data:any){
-    return this.http.post<any>('https://angular-api-ot78.onrender.com', data)
+    return this.http.post<any>('https://angular-api-ot78.onrender.com/form', data)
   }
 }
